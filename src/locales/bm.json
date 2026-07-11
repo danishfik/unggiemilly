@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "Majlis Perkahwinan Danish & Intan",
+    "description": "Jemput sertai kami meraikan majlis perkahwinan Muhammad Danish Fikri & Intan Kamilia."
+  },
+  "nav": {
+    "schedule": "Jadual",
+    "directions": "Lokasi & Tempat Menarik",
+    "gallery": "Galeri",
+    "gifts": "Hadiah"
+  },
+  "lang": {
+    "label": "Bahasa"
+  },
+  "hero": {
+    "eyebrow": "Majlis Perkahwinan",
+    "dateLine": "12 DISEMBER 2026 · KUALA LUMPUR"
+  },
+  "countdown": {
+    "aria": "Kiraan detik ke majlis perkahwinan",
+    "days": "hari",
+    "hours": "jam",
+    "minutes": "minit",
+    "seconds": "saat"
+  },
+  "schedule": {
+    "heading": "Jadual Majlis",
+    "prepTitle": "Persiapan Pengantin",
+    "prepVenue": "Kediaman Pengantin",
+    "akadTitle": "Akad Nikah",
+    "akadVenue": "Masjid Negara",
+    "receptionTitle": "Majlis Doa Selamat",
+    "receptionVenue": "Akan ditentukan"
+  },
+  "directions": {
+    "heading": "Arah Tuju & Tempat Menarik",
+    "poiMasjid": "Masjid Negara (Akad Nikah)",
+    "poiDewan": "Dewan Perdana (Majlis)",
+    "poiHotel": "Hotel Istana KL",
+    "poiBus": "Bas ke Majlis",
+    "mapTitle": "Peta lokasi majlis"
+  },
+  "gallery": {
+    "heading": "Galeri"
+  },
+  "gifts": {
+    "heading": "Hadiah",
+    "intro": "Kehadiran anda sudah cukup bererti buat kami — tetapi jika anda ingin membawa sesuatu, senaraikan di bawah supaya semua tetamu dapat lihat apa yang sudah disediakan dan tidak bertindih.",
+    "nameLabel": "Nama Anda",
+    "namePlaceholder": "cth. Ahmad & Keluarga",
+    "giftLabel": "Hadiah",
+    "giftPlaceholder": "cth. Periuk nasi elektrik",
+    "submit": "Tambah ke Senarai",
+    "confirmYes": "Ya, tambah juga",
+    "confirmNo": "Biar saya tukar",
+    "confirmSimilar": "{{name}} sudah menyenaraikan “{{gift}}” — nampak serupa dengan hadiah anda. Tambah juga?",
+    "someone": "Seseorang",
+    "statusAdding": "Menambah…",
+    "statusThankYou": "Terima kasih!",
+    "statusError": "Ada masalah — sila cuba lagi.",
+    "listLoading": "Memuatkan…",
+    "listEmpty": "Belum ada hadiah disenaraikan — jadilah yang pertama!",
+    "listError": "Tidak dapat memuatkan senarai hadiah sekarang."
+  },
+  "footer": "Muhammad Danish Fikri & Intan Kamilia · 12 Disember 2026",
+  "lightbox": {
+    "close": "Tutup",
+    "prev": "Foto sebelumnya",
+    "next": "Foto seterusnya"
+  }
+}

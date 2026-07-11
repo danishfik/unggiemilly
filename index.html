@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Wedding of Danish &amp; Intan</title>
-  <meta name="description" content="Join us as we celebrate the wedding of Muhammad Danish Fikri &amp; Intan Kamilia." />
+  <title data-i18n="meta.title">The Wedding of Danish &amp; Intan</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Join us as we celebrate the wedding of Muhammad Danish Fikri &amp; Intan Kamilia." />
   <meta name="theme-color" content="#f7f2e9" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E" />
 
@@ -47,17 +47,22 @@
       </div>
 
       <nav class="site-nav" aria-label="Primary">
-        <a href="#schedule">Schedule</a>
-        <a href="#directions">Points of interest</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#gifts">Gifts</a>
+        <a href="#schedule" data-i18n="nav.schedule">Schedule</a>
+        <a href="#directions" data-i18n="nav.directions">Points of interest</a>
+        <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+        <a href="#gifts" data-i18n="nav.gifts">Gifts</a>
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+          <a href="/bm/" data-lang-link="bm">BM</a>
+          <span aria-hidden="true">|</span>
+          <a href="/en/" data-lang-link="en">EN</a>
+        </div>
       </nav>
 
       <div class="hero-content">
-        <p class="eyebrow" data-hero-el>The Wedding Of</p>
+        <p class="eyebrow" data-hero-el data-i18n="hero.eyebrow">The Wedding Of</p>
         <h1 class="script-title" data-hero-el>Danish <span>&amp;</span> Kamilia</h1>
         <p class="full-names" data-hero-el>Muhammad Danish Fikri Bin Mat Juri<br>&amp; Intan Kamilia Binti Roslan</p>
-        <p class="date-line" data-hero-el>12TH DECEMBER 2026 &middot; KUALA LUMPUR</p>
+        <p class="date-line" data-hero-el data-i18n="hero.dateLine">12TH DECEMBER 2026 &middot; KUALA LUMPUR</p>
 
         <div class="hero-visual" data-hero-el>
           <!-- Single photo — tablet & mobile -->
@@ -92,22 +97,22 @@
 
         <div class="divider" data-divider><span>&infin;</span></div>
 
-        <div class="countdown" id="countdown" data-hero-el aria-label="Countdown to the wedding">
+        <div class="countdown" id="countdown" data-hero-el data-i18n-attr="aria-label:countdown.aria" aria-label="Countdown to the wedding">
           <div class="count-item">
             <span class="count-num" data-days>00</span>
-            <span class="count-label">days</span>
+            <span class="count-label" data-i18n="countdown.days">days</span>
           </div>
           <div class="count-item">
             <span class="count-num" data-hours>00</span>
-            <span class="count-label">hours</span>
+            <span class="count-label" data-i18n="countdown.hours">hours</span>
           </div>
           <div class="count-item">
             <span class="count-num" data-minutes>00</span>
-            <span class="count-label">minutes</span>
+            <span class="count-label" data-i18n="countdown.minutes">minutes</span>
           </div>
           <div class="count-item">
             <span class="count-num" data-seconds>00</span>
-            <span class="count-label">seconds</span>
+            <span class="count-label" data-i18n="countdown.seconds">seconds</span>
           </div>
         </div>
 
@@ -133,37 +138,32 @@
         <span class="spark" style="--x:46%; --y:55%; --delay:1.4s; --dur:4.2s;"></span>
       </div>
 
-      <h2 class="script-heading" data-reveal>Schedule</h2>
+      <h2 class="script-heading" data-reveal data-i18n="schedule.heading">Schedule</h2>
 
       <div class="tab-panel is-active" id="panel-akad" data-panel="akad">
         <ul class="timeline">
           <li>
             <span class="time">8:00</span>
             <div class="event">
-              <p class="event-title">Persiapan Pengantin</p>
-              <a href="#" class="event-location">Kediaman Pengantin <span class="pin">&#128205;</span></a>
+              <p class="event-title" data-i18n="schedule.prepTitle">Persiapan Pengantin</p>
+              <a href="#" class="event-location"><span data-i18n="schedule.prepVenue">Kediaman Pengantin</span> <span class="pin">&#128205;</span></a>
             </div>
           </li>
           <li>
             <span class="time">10:00</span>
             <div class="event">
-              <p class="event-title">Akad Nikah</p>
-              <a href="#" class="event-location">Masjid Negara <span class="pin">&#128205;</span></a>
+              <p class="event-title" data-i18n="schedule.akadTitle">Akad Nikah</p>
+              <a href="#" class="event-location"><span data-i18n="schedule.akadVenue">Masjid Negara</span> <span class="pin">&#128205;</span></a>
             </div>
           </li>
           <li>
             <span class="time">12:00</span>
             <div class="event">
-              <p class="event-title">Majlis Doa Selamat</p>
-              <p class="event-location muted">To be defined</p>
+              <p class="event-title" data-i18n="schedule.receptionTitle">Majlis Doa Selamat</p>
+              <p class="event-location muted" data-i18n="schedule.receptionVenue">To be defined</p>
             </div>
           </li>
         </ul>
-      </div>
-
-      <!-- TODO: replace with your own photo -->
-      <div class="section-photo" data-reveal>
-        <img src="https://picsum.photos/seed/wedding-schedule/1000/650" alt="Wedding celebration" />
       </div>
     </section>
 
@@ -180,18 +180,19 @@
         <span class="spark spark--star" style="--x:70%; --y:60%; --delay:3s; --dur:4.6s;"></span>
       </div>
 
-      <h2 class="script-heading" data-reveal>Directions &amp; Points of Interest</h2>
+      <h2 class="script-heading" data-reveal data-i18n="directions.heading">Directions &amp; Points of Interest</h2>
 
       <ul class="poi-list" data-reveal-group>
-        <li><span class="pin">&#128205;</span> Masjid Negara (Akad Nikah)</li>
-        <li><span class="pin">&#128205;</span> Dewan Perdana (Ceremony)</li>
-        <li><span class="pin">&#128205;</span> Hotel Istana KL</li>
-        <li><span class="pin">&#128205;</span> Bus to Celebration</li>
+        <li><span class="pin">&#128205;</span> <span data-i18n="directions.poiMasjid">Masjid Negara (Akad Nikah)</span></li>
+        <li><span class="pin">&#128205;</span> <span data-i18n="directions.poiDewan">Dewan Perdana (Ceremony)</span></li>
+        <li><span class="pin">&#128205;</span> <span data-i18n="directions.poiHotel">Hotel Istana KL</span></li>
+        <li><span class="pin">&#128205;</span> <span data-i18n="directions.poiBus">Bus to Celebration</span></li>
       </ul>
 
       <div class="map-embed" data-reveal>
         <iframe
           title="Wedding venue map"
+          data-i18n-attr="title:directions.mapTitle"
           src="https://www.google.com/maps?q=Kuala+Lumpur&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
@@ -215,7 +216,7 @@
         <span class="spark" style="--x:86%; --y:70%; --delay:1.6s; --dur:5.6s;"></span>
       </div>
 
-      <h2 class="script-heading" data-reveal>Gallery</h2>
+      <h2 class="script-heading" data-reveal data-i18n="gallery.heading">Gallery</h2>
 
       <div class="photo-grid photo-grid--gallery" data-reveal-group data-lightbox-group>
         <!-- TODO: replace with your own photos -->
@@ -243,32 +244,32 @@
         <span class="spark spark--star" style="--x:66%; --y:58%; --delay:3.4s; --dur:5s;"></span>
       </div>
 
-      <h2 class="script-heading" data-reveal>Gifts</h2>
-      <p data-reveal>
+      <h2 class="script-heading" data-reveal data-i18n="gifts.heading">Gifts</h2>
+      <p data-reveal data-i18n="gifts.intro">
         Your presence is the only gift we need — but if you'd like to bring something more,
         state it below so everyone can see what's already covered and nothing overlaps.
       </p>
 
       <form id="giftForm" class="gift-form" data-reveal novalidate>
         <div class="gift-form-row">
-          <label for="giftName">Your Name</label>
-          <input type="text" id="giftName" name="name" required maxlength="60" placeholder="e.g. Ahmad &amp; Family" />
+          <label for="giftName" data-i18n="gifts.nameLabel">Your Name</label>
+          <input type="text" id="giftName" name="name" required maxlength="60" placeholder="e.g. Ahmad &amp; Family" data-i18n-attr="placeholder:gifts.namePlaceholder" />
         </div>
         <div class="gift-form-row">
-          <label for="giftItem">Gift</label>
-          <input type="text" id="giftItem" name="gift" required maxlength="200" placeholder="e.g. A rice cooker" />
+          <label for="giftItem" data-i18n="gifts.giftLabel">Gift</label>
+          <input type="text" id="giftItem" name="gift" required maxlength="200" placeholder="e.g. A rice cooker" data-i18n-attr="placeholder:gifts.giftPlaceholder" />
         </div>
 
         <!-- Honeypot — left blank by real visitors, often filled by simple bots -->
         <input type="text" name="company" class="gift-form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-        <button type="submit" class="btn" id="giftSubmitBtn">Add to the List</button>
+        <button type="submit" class="btn" id="giftSubmitBtn" data-i18n="gifts.submit">Add to the List</button>
 
         <div class="gift-confirm" id="giftConfirm" hidden>
           <p class="gift-confirm-message" id="giftConfirmMessage"></p>
           <div class="gift-confirm-actions">
-            <button type="button" class="btn" id="giftConfirmYes">Yes, add it anyway</button>
-            <button type="button" class="btn btn-ghost" id="giftConfirmNo">Let me change it</button>
+            <button type="button" class="btn" id="giftConfirmYes" data-i18n="gifts.confirmYes">Yes, add it anyway</button>
+            <button type="button" class="btn btn-ghost" id="giftConfirmNo" data-i18n="gifts.confirmNo">Let me change it</button>
           </div>
         </div>
 
@@ -276,12 +277,12 @@
       </form>
 
       <ul class="gift-list" id="giftList">
-        <li class="gift-list-empty">Loading&hellip;</li>
+        <li class="gift-list-empty" data-i18n="gifts.listLoading">Loading&hellip;</li>
       </ul>
     </section>
 
      <footer class="site-footer" data-reveal>
-      <p>Muhammad Danish Fikri &amp; Intan Kamilia &middot; 12th December 2026</p>
+      <p data-i18n="footer">Muhammad Danish Fikri &amp; Intan Kamilia &middot; 12th December 2026</p>
     </footer>
 
   </div>
@@ -290,10 +291,10 @@
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-  <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#10094;</button>
+  <button class="lightbox-close" id="lightboxClose" data-i18n-attr="aria-label:lightbox.close" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" id="lightboxPrev" data-i18n-attr="aria-label:lightbox.prev" aria-label="Previous photo">&#10094;</button>
   <img class="lightbox-img" id="lightboxImg" src="" alt="" />
-  <button class="lightbox-next" id="lightboxNext" aria-label="Next photo">&#10095;</button>
+  <button class="lightbox-next" id="lightboxNext" data-i18n-attr="aria-label:lightbox.next" aria-label="Next photo">&#10095;</button>
 </div>
 
 <script type="module" src="/src/main.ts"></script>

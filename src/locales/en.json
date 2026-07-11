@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "The Wedding of Danish & Intan",
+    "description": "Join us as we celebrate the wedding of Muhammad Danish Fikri & Intan Kamilia."
+  },
+  "nav": {
+    "schedule": "Schedule",
+    "directions": "Points of interest",
+    "gallery": "Gallery",
+    "gifts": "Gifts"
+  },
+  "lang": {
+    "label": "Language"
+  },
+  "hero": {
+    "eyebrow": "The Wedding Of",
+    "dateLine": "12TH DECEMBER 2026 · KUALA LUMPUR"
+  },
+  "countdown": {
+    "aria": "Countdown to the wedding",
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds"
+  },
+  "schedule": {
+    "heading": "Schedule",
+    "prepTitle": "Bridal Preparation",
+    "prepVenue": "Kediaman Pengantin",
+    "akadTitle": "Akad Nikah",
+    "akadVenue": "Masjid Negara",
+    "receptionTitle": "Majlis Doa Selamat",
+    "receptionVenue": "To be defined"
+  },
+  "directions": {
+    "heading": "Directions & Points of Interest",
+    "poiMasjid": "Masjid Negara (Akad Nikah)",
+    "poiDewan": "Dewan Perdana (Ceremony)",
+    "poiHotel": "Hotel Istana KL",
+    "poiBus": "Bus to Celebration",
+    "mapTitle": "Wedding venue map"
+  },
+  "gallery": {
+    "heading": "Gallery"
+  },
+  "gifts": {
+    "heading": "Gifts",
+    "intro": "Your presence is the only gift we need — but if you'd like to bring something more, state it below so everyone can see what's already covered and nothing overlaps.",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "e.g. Ahmad & Family",
+    "giftLabel": "Gift",
+    "giftPlaceholder": "e.g. A rice cooker",
+    "submit": "Add to the List",
+    "confirmYes": "Yes, add it anyway",
+    "confirmNo": "Let me change it",
+    "confirmSimilar": "{{name}} already listed “{{gift}}” — that looks similar to yours. Add it anyway?",
+    "someone": "Someone",
+    "statusAdding": "Adding…",
+    "statusThankYou": "Thank you!",
+    "statusError": "Something went wrong — please try again.",
+    "listLoading": "Loading…",
+    "listEmpty": "No gifts listed yet — be the first!",
+    "listError": "Couldn’t load the gift list right now."
+  },
+  "footer": "Muhammad Danish Fikri & Intan Kamilia · 12th December 2026",
+  "lightbox": {
+    "close": "Close",
+    "prev": "Previous photo",
+    "next": "Next photo"
+  }
+}

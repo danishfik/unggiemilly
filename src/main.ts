@@ -3,8 +3,12 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { db } from './firebase';
 import { collection, addDoc, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore';
+import { applyTranslations, initLangSwitch, t } from './i18n';
 
 gsap.registerPlugin(ScrollTrigger);
+
+applyTranslations();
+initLangSwitch();
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -162,7 +166,7 @@ if (giftForm && giftList && giftSubmitBtn && giftConfirm && giftConfirmMessage &
       latestGifts = snapshot.docs.map((doc) => doc.data() as GiftEntry);
 
       if (snapshot.empty) {
-        giftList.innerHTML = '<li class="gift-list-empty">No gifts listed yet — be the first!</li>';
+        giftList.innerHTML = `<li class="gift-list-empty">${t('gifts.listEmpty')}</li>`;
         return;
       }
       giftList.innerHTML = '';
@@ -180,20 +184,20 @@ if (giftForm && giftList && giftSubmitBtn && giftConfirm && giftConfirmMessage &
       });
     },
     () => {
-      giftList.innerHTML = '<li class="gift-list-empty">Couldn’t load the gift list right now.</li>';
+      giftList.innerHTML = `<li class="gift-list-empty">${t('gifts.listError')}</li>`;
     }
   );
 
   async function submitGift(name: string, gift: string) {
     giftSubmitBtn!.disabled = true;
-    if (giftFormStatus) giftFormStatus.textContent = 'Adding…';
+    if (giftFormStatus) giftFormStatus.textContent = t('gifts.statusAdding');
 
     try {
       await addDoc(collection(db, 'gifts'), { name, gift, createdAt: serverTimestamp() });
       giftForm!.reset();
-      if (giftFormStatus) giftFormStatus.textContent = 'Thank you!';
+      if (giftFormStatus) giftFormStatus.textContent = t('gifts.statusThankYou');
     } catch {
-      if (giftFormStatus) giftFormStatus.textContent = 'Something went wrong — please try again.';
+      if (giftFormStatus) giftFormStatus.textContent = t('gifts.statusError');
     } finally {
       giftSubmitBtn!.disabled = false;
     }
@@ -201,7 +205,7 @@ if (giftForm && giftList && giftSubmitBtn && giftConfirm && giftConfirmMessage &
 
   function showGiftConfirm(similar: GiftEntry, name: string, gift: string) {
     pendingSubmission = { name, gift };
-    giftConfirmMessage!.textContent = `${similar.name ?? 'Someone'} already listed “${similar.gift}” — that looks similar to yours. Add it anyway?`;
+    giftConfirmMessage!.textContent = t('gifts.confirmSimilar', { name: similar.name ?? t('gifts.someone'), gift: similar.gift });
     giftConfirm!.hidden = false;
     giftSubmitBtn!.hidden = true;
   }
