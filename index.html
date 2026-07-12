@@ -48,9 +48,10 @@
 
       <nav class="site-nav" aria-label="Primary">
         <a href="#schedule" data-i18n="nav.schedule">Schedule</a>
-        <a href="#directions" data-i18n="nav.directions">Points of interest</a>
+        <a href="#directions" data-i18n="nav.directions">Directions</a>
         <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
         <a href="#gifts" data-i18n="nav.gifts">Gifts</a>
+        <a href="#wishes" data-i18n="nav.wishes">Wishes</a>
         <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
           <a href="/bm/" data-lang-link="bm">BM</a>
           <span aria-hidden="true">|</span>
@@ -60,7 +61,7 @@
 
       <div class="hero-content">
         <p class="eyebrow" data-hero-el data-i18n="hero.eyebrow">The Wedding Of</p>
-        <h1 class="script-title" data-hero-el>Danish <span>&amp;</span> Kamilia</h1>
+        <h1 class="script-title" data-hero-el>Danish <span>&amp;</span> Intan</h1>
         <p class="full-names" data-hero-el>Muhammad Danish Fikri Bin Mat Juri<br>&amp; Intan Kamilia Binti Roslan</p>
         <p class="date-line" data-hero-el data-i18n="hero.dateLine">12TH DECEMBER 2026 &middot; KUALA LUMPUR</p>
 
@@ -180,14 +181,7 @@
         <span class="spark spark--star" style="--x:70%; --y:60%; --delay:3s; --dur:4.6s;"></span>
       </div>
 
-      <h2 class="script-heading" data-reveal data-i18n="directions.heading">Directions &amp; Points of Interest</h2>
-
-      <ul class="poi-list" data-reveal-group>
-        <li><span class="pin">&#128205;</span> <span data-i18n="directions.poiMasjid">Masjid Negara (Akad Nikah)</span></li>
-        <li><span class="pin">&#128205;</span> <span data-i18n="directions.poiDewan">Dewan Perdana (Ceremony)</span></li>
-        <li><span class="pin">&#128205;</span> <span data-i18n="directions.poiHotel">Hotel Istana KL</span></li>
-        <li><span class="pin">&#128205;</span> <span data-i18n="directions.poiBus">Bus to Celebration</span></li>
-      </ul>
+      <h2 class="script-heading" data-reveal data-i18n="directions.heading">Directions</h2>
 
       <div class="map-embed" data-reveal>
         <iframe
@@ -279,6 +273,59 @@
       <ul class="gift-list" id="giftList">
         <li class="gift-list-empty" data-i18n="gifts.listLoading">Loading&hellip;</li>
       </ul>
+    </section>
+
+    <div class="divider" data-reveal data-divider><span>&infin;</span></div>
+
+    <!-- WISHES -->
+    <section id="wishes" class="block">
+      <div class="section-particles" aria-hidden="true">
+        <span class="petal petal--bud" style="--x:14%; --delay:-6s; --dur:23s; --drift:28px;"></span>
+        <span class="petal petal--sage" style="--x:50%; --delay:-16s; --dur:26s; --drift:-32px;"></span>
+        <span class="petal" style="--x:84%; --delay:-3s; --dur:21s; --drift:24px;"></span>
+
+        <span class="spark spark--star" style="--x:26%; --y:24%; --delay:0.6s; --dur:5s;"></span>
+        <span class="spark" style="--x:72%; --y:52%; --delay:2.4s; --dur:4.6s;"></span>
+      </div>
+
+      <h2 class="script-heading" data-reveal data-i18n="wishes.heading">Wishes</h2>
+      <p class="wish-intro" data-reveal data-i18n="wishes.intro">
+        Leave a message of love and well wishes for the couple — and read what
+        other guests have shared below.
+      </p>
+
+      <form id="wishForm" class="wish-form" data-reveal novalidate>
+        <div class="wish-form-row">
+          <label for="wishName" data-i18n="wishes.nameLabel">Your Name</label>
+          <input type="text" id="wishName" name="name" required maxlength="60" placeholder="e.g. Ahmad" data-i18n-attr="placeholder:wishes.namePlaceholder" />
+        </div>
+        <div class="wish-form-row">
+          <label for="wishMessage" data-i18n="wishes.messageLabel">Your Wish</label>
+          <textarea id="wishMessage" name="message" required maxlength="300" rows="3" placeholder="e.g. Wishing you a lifetime of love and happiness!" data-i18n-attr="placeholder:wishes.messagePlaceholder"></textarea>
+        </div>
+
+        <!-- Honeypot — left blank by real visitors, often filled by simple bots -->
+        <input type="text" name="company" class="wish-form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <button type="submit" class="btn" id="wishSubmitBtn" data-i18n="wishes.submit">Send Wish</button>
+
+        <p class="wish-form-status" id="wishFormStatus" role="status"></p>
+      </form>
+
+      <div class="wish-carousel" id="wishCarousel">
+        <div class="wish-carousel-viewport">
+          <div class="wish-carousel-track" id="wishCarouselTrack">
+            <p class="wish-carousel-empty" id="wishCarouselEmpty" data-i18n="wishes.listLoading">Loading&hellip;</p>
+          </div>
+        </div>
+        <div class="wish-carousel-controls" id="wishCarouselControls" hidden>
+          <button type="button" class="wish-carousel-btn" id="wishPrev" data-i18n-attr="aria-label:wishes.prev" aria-label="Previous wish">&#10094;</button>
+          <div class="wish-carousel-dots" id="wishDots"></div>
+          <button type="button" class="wish-carousel-btn" id="wishNext" data-i18n-attr="aria-label:wishes.next" aria-label="Next wish">&#10095;</button>
+        </div>
+      </div>
+
+      <a class="wish-slideshow-link" href="./wishes.html" data-i18n="wishes.slideshowLink">View as full-screen slideshow &rarr;</a>
     </section>
 
      <footer class="site-footer" data-reveal>

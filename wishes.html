@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="wishes.slideshowHeading">Wishes for Danish &amp; Kamilia</title>
+  <meta name="theme-color" content="#f7f2e9" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="wish-stage block" id="wishStage">
+  <!-- Same floating petal/spark decoration markup used in every section on index.html -->
+  <div class="section-particles" aria-hidden="true">
+    <span class="petal petal--bud" style="--x:10%; --delay:-6s; --dur:23s; --drift:28px;"></span>
+    <span class="petal petal--sage" style="--x:46%; --delay:-16s; --dur:26s; --drift:-32px;"></span>
+    <span class="petal" style="--x:82%; --delay:-3s; --dur:21s; --drift:24px;"></span>
+
+    <span class="spark spark--star" style="--x:24%; --y:22%; --delay:0.6s; --dur:5s;"></span>
+    <span class="spark" style="--x:70%; --y:55%; --delay:2.4s; --dur:4.6s;"></span>
+  </div>
+
+  <a class="wish-stage-back" href="./" data-i18n="wishes.backToSite">&#8249; Back to site</a>
+
+  <div class="wish-stage-inner">
+    <h1 class="script-heading" data-i18n="wishes.slideshowHeading">Wishes for Danish &amp; Kamilia</h1>
+
+    <div class="divider is-drawn"><span>&infin;</span></div>
+
+    <div class="wish-stage-columns">
+      <div class="wish-stage-photo" id="wishStagePhoto"></div>
+
+      <div class="wish-stage-track" id="wishStageTrack">
+        <p class="wish-stage-empty" id="wishStageEmpty" data-i18n="wishes.listLoading">Loading&hellip;</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/src/wishes.ts"></script>
+</body>
+</html>

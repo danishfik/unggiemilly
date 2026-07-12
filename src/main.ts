@@ -3,12 +3,16 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { db } from './firebase';
 import { collection, addDoc, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore';
-import { applyTranslations, initLangSwitch, t } from './i18n';
+import { applyTranslations, initLangSwitch, siteRootHref, t } from './i18n';
 
 gsap.registerPlugin(ScrollTrigger);
 
 applyTranslations();
 initLangSwitch();
+
+document.querySelectorAll<HTMLAnchorElement>('.wish-slideshow-link').forEach((link) => {
+  link.href = siteRootHref('wishes.html');
+});
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -250,6 +254,160 @@ if (giftForm && giftList && giftSubmitBtn && giftConfirm && giftConfirmMessage &
   });
 }
 
+/* ============ WISHES ============
+   Same Firestore-backed pattern as the gift list above, but rendered as an
+   auto-advancing carousel since wishes are read as standalone messages
+   rather than scanned as a list. */
+interface WishEntry {
+  name?: string;
+  message?: string;
+}
+
+const wishForm = document.getElementById('wishForm') as HTMLFormElement | null;
+const wishSubmitBtn = document.getElementById('wishSubmitBtn') as HTMLButtonElement | null;
+const wishFormStatus = document.getElementById('wishFormStatus');
+const wishCarouselTrack = document.getElementById('wishCarouselTrack');
+const wishCarouselControls = document.getElementById('wishCarouselControls');
+const wishDots = document.getElementById('wishDots');
+const wishPrevBtn = document.getElementById('wishPrev') as HTMLButtonElement | null;
+const wishNextBtn = document.getElementById('wishNext') as HTMLButtonElement | null;
+
+if (wishForm && wishSubmitBtn && wishCarouselTrack && wishCarouselControls && wishDots && wishPrevBtn && wishNextBtn) {
+  const AUTO_ADVANCE_MS = 6000;
+  // Cap dot indicators so a large wish count (e.g. 100) doesn't render 100
+  // dots — a handful of dots spread proportionally across the range instead.
+  const MAX_DOTS = 5;
+  let wishCount = 0;
+  let currentIndex = 0;
+  let autoAdvanceTimer: ReturnType<typeof setInterval> | null = null;
+
+  function goToWish(index: number) {
+    if (wishCount === 0) return;
+    currentIndex = ((index % wishCount) + wishCount) % wishCount;
+    wishCarouselTrack!.querySelectorAll('.wish-slide').forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === currentIndex);
+    });
+    const dots = wishDots!.querySelectorAll('.wish-dot');
+    const activeDotIndex =
+      dots.length <= 1 || wishCount <= 1 ? 0 : Math.round((currentIndex / (wishCount - 1)) * (dots.length - 1));
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === activeDotIndex));
+  }
+
+  function startAutoAdvance() {
+    stopAutoAdvance();
+    if (wishCount > 1) {
+      autoAdvanceTimer = setInterval(() => goToWish(currentIndex + 1), AUTO_ADVANCE_MS);
+    }
+  }
+
+  function stopAutoAdvance() {
+    if (autoAdvanceTimer !== null) {
+      clearInterval(autoAdvanceTimer);
+      autoAdvanceTimer = null;
+    }
+  }
+
+  const wishCarouselEl = document.getElementById('wishCarousel');
+  wishCarouselEl?.addEventListener('mouseenter', stopAutoAdvance);
+  wishCarouselEl?.addEventListener('mouseleave', startAutoAdvance);
+  wishCarouselEl?.addEventListener('focusin', stopAutoAdvance);
+  wishCarouselEl?.addEventListener('focusout', startAutoAdvance);
+
+  wishPrevBtn.addEventListener('click', () => goToWish(currentIndex - 1));
+  wishNextBtn.addEventListener('click', () => goToWish(currentIndex + 1));
+
+  const wishesQuery = query(collection(db, 'wishes'), orderBy('createdAt', 'desc'));
+
+  onSnapshot(
+    wishesQuery,
+    (snapshot) => {
+      wishCarouselTrack!.innerHTML = '';
+
+      if (snapshot.empty) {
+        wishCount = 0;
+        wishCarouselControls!.hidden = true;
+        wishDots!.innerHTML = '';
+        const empty = document.createElement('p');
+        empty.className = 'wish-carousel-empty';
+        empty.textContent = t('wishes.listEmpty');
+        wishCarouselTrack!.appendChild(empty);
+        stopAutoAdvance();
+        return;
+      }
+
+      wishCount = snapshot.size;
+      wishDots!.innerHTML = '';
+
+      snapshot.forEach((doc) => {
+        const data = doc.data() as WishEntry;
+
+        const slide = document.createElement('div');
+        slide.className = 'wish-slide';
+        const messageEl = document.createElement('p');
+        messageEl.className = 'wish-slide-message';
+        messageEl.textContent = data.message ?? '';
+        const nameEl = document.createElement('p');
+        nameEl.className = 'wish-slide-name';
+        nameEl.textContent = data.name ?? t('gifts.someone');
+        slide.append(messageEl, nameEl);
+        wishCarouselTrack!.appendChild(slide);
+      });
+
+      const dotCount = Math.min(wishCount, MAX_DOTS);
+      for (let d = 0; d < dotCount; d++) {
+        const targetIndex = dotCount === 1 ? 0 : Math.round((d * (wishCount - 1)) / (dotCount - 1));
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'wish-dot';
+        dot.setAttribute('aria-label', String(targetIndex + 1));
+        dot.addEventListener('click', () => goToWish(targetIndex));
+        wishDots!.appendChild(dot);
+      }
+
+      wishCarouselControls!.hidden = wishCount <= 1;
+      goToWish(Math.min(currentIndex, wishCount - 1));
+      startAutoAdvance();
+    },
+    () => {
+      wishCarouselTrack!.innerHTML = '';
+      wishCount = 0;
+      wishCarouselControls!.hidden = true;
+      const error = document.createElement('p');
+      error.className = 'wish-carousel-empty';
+      error.textContent = t('wishes.listError');
+      wishCarouselTrack!.appendChild(error);
+      stopAutoAdvance();
+    }
+  );
+
+  wishForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(wishForm);
+    const honeypot = String(formData.get('company') ?? '').trim();
+    if (honeypot) return;
+
+    const name = String(formData.get('name') ?? '').trim();
+    const message = String(formData.get('message') ?? '').trim();
+    if (!name || !message) return;
+
+    void (async () => {
+      wishSubmitBtn!.disabled = true;
+      if (wishFormStatus) wishFormStatus.textContent = t('wishes.statusAdding');
+
+      try {
+        await addDoc(collection(db, 'wishes'), { name, message, createdAt: serverTimestamp() });
+        wishForm!.reset();
+        if (wishFormStatus) wishFormStatus.textContent = t('wishes.statusThankYou');
+      } catch {
+        if (wishFormStatus) wishFormStatus.textContent = t('wishes.statusError');
+      } finally {
+        wishSubmitBtn!.disabled = false;
+      }
+    })();
+  });
+}
+
 /* ============ HERO INTRO ============ */
 const heroEls = gsap.utils.toArray<HTMLElement>('[data-hero-el]');
 if (prefersReducedMotion) {
@@ -260,8 +418,11 @@ if (prefersReducedMotion) {
     .timeline({ delay: 0.2 })
     .to(heroEls, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12 });
 
-  // Subtle parallax drift on the hero photo (and full-bleed desktop background)
-  gsap.to('.hero-photo img, .hero-bg img', {
+  // Subtle parallax drift on the small mobile hero photo card — the
+  // full-bleed desktop background (.hero-bg img) is excluded so it stays
+  // perfectly still while scrolling, since it's already pinned via
+  // position: fixed.
+  gsap.to('.hero-photo img', {
     yPercent: 10,
     ease: 'none',
     scrollTrigger: { trigger: '.hero-panel', start: 'top top', end: 'bottom top', scrub: true },

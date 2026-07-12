@@ -5,9 +5,10 @@
   },
   "nav": {
     "schedule": "Jadual",
-    "directions": "Lokasi & Tempat Menarik",
+    "directions": "Arah Tuju",
     "gallery": "Galeri",
-    "gifts": "Hadiah"
+    "gifts": "Hadiah",
+    "wishes": "Ucapan"
   },
   "lang": {
     "label": "Bahasa"
@@ -33,11 +34,7 @@
     "receptionVenue": "Akan ditentukan"
   },
   "directions": {
-    "heading": "Arah Tuju & Tempat Menarik",
-    "poiMasjid": "Masjid Negara (Akad Nikah)",
-    "poiDewan": "Dewan Perdana (Majlis)",
-    "poiHotel": "Hotel Istana KL",
-    "poiBus": "Bas ke Majlis",
+    "heading": "Arah Tuju",
     "mapTitle": "Peta lokasi majlis"
   },
   "gallery": {
@@ -61,6 +58,26 @@
     "listLoading": "Memuatkan…",
     "listEmpty": "Belum ada hadiah disenaraikan — jadilah yang pertama!",
     "listError": "Tidak dapat memuatkan senarai hadiah sekarang."
+  },
+  "wishes": {
+    "heading": "Ucapan",
+    "intro": "Tinggalkan ucapan dan doa untuk pengantin — dan lihat ucapan daripada tetamu lain di bawah.",
+    "nameLabel": "Nama Anda",
+    "namePlaceholder": "cth. Ahmad",
+    "messageLabel": "Ucapan Anda",
+    "messagePlaceholder": "cth. Semoga berkekalan hingga ke syurga!",
+    "submit": "Hantar Ucapan",
+    "statusAdding": "Menghantar…",
+    "statusThankYou": "Terima kasih atas ucapan anda!",
+    "statusError": "Ada masalah — sila cuba lagi.",
+    "listLoading": "Memuatkan…",
+    "listEmpty": "Belum ada ucapan — jadilah yang pertama menghantar ucapan untuk perkahwinan kami!",
+    "listError": "Tidak dapat memuatkan ucapan sekarang.",
+    "prev": "Ucapan sebelumnya",
+    "next": "Ucapan seterusnya",
+    "slideshowHeading": "Ucapan untuk Danish & Kamilia",
+    "backToSite": "‹ Kembali ke laman",
+    "slideshowLink": "Lihat sebagai tayangan skrin penuh →"
   },
   "footer": "Muhammad Danish Fikri & Intan Kamilia · 12 Disember 2026",
   "lightbox": {

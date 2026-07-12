@@ -5,9 +5,10 @@
   },
   "nav": {
     "schedule": "Schedule",
-    "directions": "Points of interest",
+    "directions": "Directions",
     "gallery": "Gallery",
-    "gifts": "Gifts"
+    "gifts": "Gifts",
+    "wishes": "Wishes"
   },
   "lang": {
     "label": "Language"
@@ -33,11 +34,7 @@
     "receptionVenue": "To be defined"
   },
   "directions": {
-    "heading": "Directions & Points of Interest",
-    "poiMasjid": "Masjid Negara (Akad Nikah)",
-    "poiDewan": "Dewan Perdana (Ceremony)",
-    "poiHotel": "Hotel Istana KL",
-    "poiBus": "Bus to Celebration",
+    "heading": "Directions",
     "mapTitle": "Wedding venue map"
   },
   "gallery": {
@@ -61,6 +58,26 @@
     "listLoading": "Loading…",
     "listEmpty": "No gifts listed yet — be the first!",
     "listError": "Couldn’t load the gift list right now."
+  },
+  "wishes": {
+    "heading": "Wishes",
+    "intro": "Leave a message of love and well wishes for the couple — and read what other guests have shared below.",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "e.g. Ahmad",
+    "messageLabel": "Your Wish",
+    "messagePlaceholder": "e.g. Wishing you a lifetime of love and happiness!",
+    "submit": "Send Wish",
+    "statusAdding": "Sending…",
+    "statusThankYou": "Thank you for your wish!",
+    "statusError": "Something went wrong — please try again.",
+    "listLoading": "Loading…",
+    "listEmpty": "No wishes yet — be the first to wish us well on our marriage!",
+    "listError": "Couldn’t load the wishes right now.",
+    "prev": "Previous wish",
+    "next": "Next wish",
+    "slideshowHeading": "Wishes for Danish & Kamilia",
+    "backToSite": "‹ Back to site",
+    "slideshowLink": "View as full-screen slideshow →"
   },
   "footer": "Muhammad Danish Fikri & Intan Kamilia · 12th December 2026",
   "lightbox": {

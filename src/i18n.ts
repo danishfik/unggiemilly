@@ -24,6 +24,12 @@ export function langHref(lang: Lang): string {
   return stripIndexAndLangSegment(location.pathname) + lang + '/' + location.search + location.hash;
 }
 
+// For links that must point at a root-level file (e.g. wishes.html) regardless
+// of which lang copy (/, /en/, /bm/) the current page was served from.
+export function siteRootHref(filename: string): string {
+  return stripIndexAndLangSegment(location.pathname) + filename;
+}
+
 const lang = detectLang();
 
 i18next.init({
