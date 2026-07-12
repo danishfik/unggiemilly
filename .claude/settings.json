@@ -13,7 +13,10 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 3 http://localhost:5192/)",
       "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 5193 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess\")",
       "Bash(powershell -Command \"Stop-Process -Id 23976 -Force -ErrorAction SilentlyContinue\")",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 3 http://localhost:5193/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 3 http://localhost:5193/)",
+      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 5194 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess\")",
+      "Bash(powershell -Command \"Stop-Process -Id 23384 -Force -ErrorAction SilentlyContinue\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 3 http://localhost:5194/)"
     ]
   }
 }

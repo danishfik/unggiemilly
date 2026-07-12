@@ -902,12 +902,13 @@ body {
   .content-panel { padding: 2.5rem 1.5rem 1rem; }
 
   .site-nav {
-    gap: 1.25rem;
+    gap: .65rem;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 2rem;
-    padding: 1rem 1rem 0;
-    font-size: 0.65rem;
+    padding: 1rem .5rem 0;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
   }
 
   .lang-switch { margin-left: 0; order: -1; width: 100%; justify-content: center; }
